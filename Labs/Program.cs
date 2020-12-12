@@ -6,16 +6,23 @@ namespace Lab1
     {
         static void Main(string[] args)
         {
-            int max = 0;
+            int MaxPrice = 500000;
 
-            for (int x = 1; x <= 50000; x++)
+            int maxBuyers = 0;
+            int optimalPrice = 0;
+
+            for (int x = 1; x <= MaxPrice; x++)
             {
                 int y = (int) (x * Math.Exp(-x / 50000.0));
 
-                max = Math.Max(max, y);
+                if (maxBuyers < y)
+                {
+                    maxBuyers = y;
+                    optimalPrice = x;
+                }
             }
 
-            Console.WriteLine(max);
+            Console.WriteLine(optimalPrice);
             Console.ReadKey();
         }
     }
